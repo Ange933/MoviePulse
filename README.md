@@ -20,7 +20,7 @@ Tailwind CSS : Style de l'interface utilisateur.
 
 1️⃣ Cloner le projet
 
-git clone https://github.com/ton-repo/nom-du-projet.git
+git clone https://github.com/Ange933/MoviePulse.git
 cd nom-du-projet
 
 2️⃣ Installer les dépendances
@@ -58,10 +58,6 @@ GET /api/favorites → Récupère les favoris d'un utilisateur en fonction de so
 POST /api/favorites → Ajoute un film aux favoris d'un utilisateur.
 
 DELETE /api/favorites → Supprime un film des favoris d'un utilisateur.
-
-Exemple de requête GET pour les favoris :
-
-curl -H "X-User-Id: utilisateur-uuid" http://localhost:3000/api/favorites
 
 🛠 Fonctionnalités
 
