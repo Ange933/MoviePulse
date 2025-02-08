@@ -1,44 +1,78 @@
-Création d'une application web avec Next.js, où les utilisateurs doivent s'inscrire (registration) et se connecter (login) pour accéder à une liste de films
+🎬 Plateforme de films - MongoDB & Supabase
 
-✅ Fonctionnalités principales :
+📌 Description du projet
 
-1️⃣ Authentification avec Supabase :
+Ce projet est une plateforme permettant aux utilisateurs de parcourir un catalogue de films, d'ajouter des films à leurs favoris et à leur panier, puis de finaliser un paiement fictif.
 
-    Stocke les adresses e-mail et mots de passe hachés dans une base de données Supabase (PostgreSQL).
-    Implémente l'inscription (registration) et la connexion (login) avec supabase.auth.
-    Utilise bcrypt intégré pour sécuriser les mots de passe.
-    Utilise JWT (JSON Web Tokens) pour gérer la session des utilisateurs.
+🚀 Technologies utilisées
 
-2️⃣ Gestion des utilisateurs :
+MongoDB : Stockage des films, favoris et utilisateurs.
 
-    Lorsqu'un utilisateur s'inscrit, il doit fournir un e-mail et un mot de passe.
-    Une fois connecté, il est redirigé vers une page contenant la liste des films.
-    Si un utilisateur essaie d'accéder aux films sans être connecté, il est redirigé vers la page de connexion.
+Supabase : Gestion de l'authentification des utilisateurs.
 
-3️⃣ Liste des films :
+NestJS : Backend de l'API pour interagir avec MongoDB.
 
-    Les films sont stockés dans Supabase dans une table movies.
-    Chaque film contient un titre, une affiche (URL) et une description.
-    Une route API sécurisée permet de récupérer les films uniquement si l'utilisateur est connecté.
+Next.js (TypeScript) : Frontend de l'application.
 
-4️⃣ Interface utilisateur :
+Tailwind CSS : Style de l'interface utilisateur.
 
-    Utilisation de Tailwind CSS pour un design moderne et responsive.
-    Une page de connexion avec un formulaire d'e-mail et de mot de passe.
-    Une page d'inscription avec un formulaire similaire.
-    Une page protégée affichant la liste des films après connexion.
+📁 Installation et configuration
 
-5️⃣ Sécurité & Performance :
+1️⃣ Cloner le projet
 
-    Hachage des mots de passe via Supabase Auth (bcrypt intégré).
-    Gestion des sessions avec JWT stocké dans les cookies.
-    API sécurisée avec vérification du token avant d’accéder aux films.
+git clone https://github.com/ton-repo/nom-du-projet.git
+cd nom-du-projet
 
-✅ Stack technique :
+2️⃣ Installer les dépendances
 
-    Next.js (Framework React)
-    Supabase (PostgreSQL) (Base de données pour stocker les utilisateurs et les films)
-    Supabase Auth (Gestion des utilisateurs & connexion)
-    JWT (Authentification via token)
-    Tailwind CSS (Design et mise en page)
-    NextAuth.js ou API Routes personnalisées pour gérer l'authentification
+yarn install  # ou npm install
+
+3️⃣ Configurer les variables d'environnement
+
+Créer un fichier .env.local à la racine du projet et y ajouter :
+
+# MongoDB
+MONGO_URI=mongodb+srv://user:password@cluster.mongodb.net/
+DB_NAME=nom-de-ta-bdd
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://xyzcompany.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=ta_cle_anon
+
+4️⃣ Lancer le serveur
+
+yarn dev  # ou npm run dev
+
+L'application sera disponible sur http://localhost:3000.
+
+🔥 API - Endpoints
+
+📌 Films (/api/movies)
+
+GET /api/movies → Récupère tous les films depuis MongoDB.
+
+📌 Favoris (/api/favorites)
+
+GET /api/favorites → Récupère les favoris d'un utilisateur en fonction de son UUID.
+
+POST /api/favorites → Ajoute un film aux favoris d'un utilisateur.
+
+DELETE /api/favorites → Supprime un film des favoris d'un utilisateur.
+
+Exemple de requête GET pour les favoris :
+
+curl -H "X-User-Id: utilisateur-uuid" http://localhost:3000/api/favorites
+
+🛠 Fonctionnalités
+
+✔ Authentification avec Supabase
+✔ Stockage des utilisateurs, favoris et films avec MongoDB
+✔ Ajout/Suppression de films aux favoris
+✔ Ajout au panier et calcul du total
+✔ Paiement fictif
+
+📜 License
+
+Ce projet est sous licence MIT.
+
+✍ Développé avec ❤️ par Angela
